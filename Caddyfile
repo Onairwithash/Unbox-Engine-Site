@@ -1,0 +1,14 @@
+# Deprecated for this project's active deployment path.
+# The live site now deploys via GitHub Pages + GoDaddy DNS.
+# Keep this file only as a legacy local-hosting reference.
+#
+# Legacy example:
+# www.unboxengine.com {
+#   redir https://unboxengine.com{uri} permanent
+# }
+#
+# unboxengine.com {
+#   root * "D:/AI Test Runs/Indus Soft Web"
+#   encode zstd gzip
+#   file_server
+# }
