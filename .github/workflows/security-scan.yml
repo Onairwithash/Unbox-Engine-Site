@@ -1,0 +1,49 @@
+name: Security and Privacy Scan
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Scan for secrets (gitleaks)
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Verify only approved public email
+        shell: bash
+        run: |
+          set -euo pipefail
+          emails=$(git ls-files | xargs -r rg -n -H -o -e '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}' || true)
+          if [ -n "$emails" ]; then
+            disallowed=$(printf "%s\n" "$emails" | rg -v 'unboxengine@gmail\.com$' || true)
+            if [ -n "$disallowed" ]; then
+              echo "Disallowed email addresses found:"
+              printf "%s\n" "$disallowed"
+              exit 1
+            fi
+          fi
+
+      - name: Block known personal identifiers
+        shell: bash
+        run: |
+          set -euo pipefail
+          matches=$(git ls-files | xargs -r rg -n -H -i -e 'ashish\.aironix@gmail\.com|ashish singh raichur|onairwithash' || true)
+          if [ -n "$matches" ]; then
+            echo "Personal identifiers detected:"
+            printf "%s\n" "$matches"
+            exit 1
+          fi

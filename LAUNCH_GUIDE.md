@@ -24,6 +24,8 @@ git push -u origin main
 
 Replace `<github-username>` with your GitHub username.
 
+For quotes or sales requests, use `unboxengine@gmail.com`.
+
 ## 3) Enable GitHub Pages
 
 In GitHub repo settings:
@@ -86,3 +88,21 @@ Expected:
 - Domain not verifying: make sure all 4 apex `A` records are present and exact.
 - `www` conflict in GoDaddy: remove existing `www` `A`/`CNAME`/forward rule, then add only one `CNAME`.
 - HTTPS not enabled yet: wait for DNS propagation, then re-check `Enforce HTTPS`.
+
+## 9) Repository Privacy Note (March 8, 2026)
+
+Repository commit metadata was rewritten to remove personal identity data.
+
+If you cloned this repo before this date, re-sync with one of these options:
+
+```powershell
+# Recommended: fresh clone
+git clone https://github.com/<github-username>/unboxengine-site.git
+```
+
+```powershell
+# Existing clone: hard reset to rewritten history
+git fetch origin
+git checkout main
+git reset --hard origin/main
+```
