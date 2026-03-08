@@ -7,7 +7,7 @@ This guide publishes this folder as a static site on GitHub Pages with `https://
 - You have a GitHub account.
 - You will use a new public repository.
 - DNS for `unboxengine.com` is managed in GoDaddy.
-- This project folder contains `index.html`, `styles.css`, and `script.js`.
+- This project folder contains `index.html`, `products.html`, `styles.css`, and `script.js`.
 
 ## 2) Create and Push a New Public GitHub Repo
 
