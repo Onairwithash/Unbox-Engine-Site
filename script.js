@@ -30,7 +30,7 @@ if (!reduceMotion) {
       const elementCenter = rect.top + rect.height / 2;
       const offset = (elementCenter - viewportCenter) / viewportCenter;
       const clamped = Math.max(-1, Math.min(1, offset));
-      node.style.transform = `translate3d(0, ${clamped * 18}px, 0)`;
+      node.style.transform = `translate3d(0, ${clamped * 18}px, 0) scale(1.05)`;
     });
   };
 
