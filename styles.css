@@ -390,6 +390,34 @@ h1 {
   padding-bottom: 0.18rem;
 }
 
+.indusaudio-visual {
+  margin-top: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 0.65rem;
+  background: linear-gradient(
+    140deg,
+    rgba(255, 255, 255, 0.07) 0%,
+    rgba(255, 255, 255, 0.02) 48%,
+    rgba(92, 210, 255, 0.1) 100%
+  );
+  overflow: hidden;
+}
+
+.scroll-float-inner {
+  will-change: transform;
+  transition: transform 260ms ease;
+}
+
+.indusaudio-visual img {
+  display: block;
+  width: 100%;
+  max-height: 760px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
 .section {
   margin-top: clamp(2rem, 9vw, 7rem);
 }
@@ -588,6 +616,10 @@ footer {
     max-width: 640px;
   }
 
+  .indusaudio-visual img {
+    max-height: 620px;
+  }
+
   .card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -637,7 +669,8 @@ footer {
   .reveal,
   .btn,
   .glass-card,
-  .signal-line {
+  .signal-line,
+  .scroll-float-inner {
     transition: none;
     animation: none;
   }

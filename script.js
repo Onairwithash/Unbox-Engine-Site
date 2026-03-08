@@ -1,6 +1,7 @@
 const revealElements = document.querySelectorAll(".reveal");
 const tiltCards = document.querySelectorAll(".tilt-card");
 const ambientNodes = document.querySelectorAll(".ambient");
+const scrollFloatNodes = document.querySelectorAll(".scroll-float-inner");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 if (reduceMotion) {
@@ -22,6 +23,17 @@ if (reduceMotion) {
 }
 
 if (!reduceMotion) {
+  const applyScrollFloat = () => {
+    const viewportCenter = window.innerHeight / 2;
+    scrollFloatNodes.forEach((node) => {
+      const rect = node.getBoundingClientRect();
+      const elementCenter = rect.top + rect.height / 2;
+      const offset = (elementCenter - viewportCenter) / viewportCenter;
+      const clamped = Math.max(-1, Math.min(1, offset));
+      node.style.transform = `translate3d(0, ${clamped * 18}px, 0)`;
+    });
+  };
+
   tiltCards.forEach((card) => {
     const maxTilt = 6;
     card.addEventListener("mousemove", (event) => {
@@ -47,7 +59,10 @@ if (!reduceMotion) {
         const move = progress * 35 * direction;
         node.style.transform = `translate3d(${move}px, ${move * 0.6}px, 0)`;
       });
+      applyScrollFloat();
     },
     { passive: true }
   );
+
+  applyScrollFloat();
 }
