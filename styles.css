@@ -582,6 +582,135 @@ h1 {
   margin-top: 1.2rem;
 }
 
+.demo-cta {
+  text-align: left;
+}
+
+.demo-cta-copy {
+  max-width: 760px;
+}
+
+.demo-grid {
+  margin-top: 1.4rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+.demo-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem;
+  background: rgba(10, 16, 28, 0.68);
+}
+
+.demo-card h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.1rem;
+}
+
+.demo-card p {
+  margin-top: 0.52rem;
+}
+
+.demo-form {
+  margin-top: 0.9rem;
+  display: grid;
+  gap: 0.72rem;
+}
+
+.form-row {
+  display: grid;
+  gap: 0.33rem;
+}
+
+.form-row label {
+  font-size: 0.84rem;
+  color: #d5e0f0;
+  letter-spacing: 0.01em;
+}
+
+.form-row input,
+.form-row textarea {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(6, 10, 18, 0.62);
+  color: var(--text);
+  padding: 0.6rem 0.7rem;
+  font: inherit;
+}
+
+.form-row textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.form-row input:focus-visible,
+.form-row textarea:focus-visible {
+  outline: 2px solid rgba(92, 210, 255, 0.65);
+  outline-offset: 1px;
+}
+
+.demo-form .btn {
+  margin-top: 0.2rem;
+}
+
+.demo-card .btn {
+  margin-top: 0;
+}
+
+.form-status {
+  min-height: 1.3rem;
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+.form-status[data-state="success"] {
+  color: var(--accent);
+}
+
+.form-status[data-state="error"] {
+  color: #ffadad;
+}
+
+.scheduler-shell {
+  margin-top: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  overflow: hidden;
+  min-height: 420px;
+  background: rgba(8, 12, 20, 0.64);
+}
+
+.scheduler-shell iframe {
+  width: 100%;
+  height: 420px;
+  border: 0;
+  display: none;
+}
+
+.scheduler-shell.is-ready iframe {
+  display: block;
+}
+
+.scheduler-fallback {
+  margin: 0;
+  padding: 1rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.scheduler-shell.is-ready .scheduler-fallback {
+  display: none;
+}
+
+.demo-card .scheduler-link {
+  margin-top: 0.85rem;
+}
+
 footer {
   max-width: 1200px;
   margin: 3.4rem auto 2.6rem;
@@ -638,6 +767,10 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .demo-grid {
+    grid-template-columns: 1fr;
+  }
+
   .steps {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -664,6 +797,12 @@ footer {
   .card-grid,
   .steps {
     grid-template-columns: 1fr;
+  }
+
+  .scheduler-shell,
+  .scheduler-shell iframe {
+    min-height: 360px;
+    height: 360px;
   }
 
   footer {

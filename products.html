@@ -186,13 +186,67 @@
         </div>
       </section>
 
-      <section id="contact" class="section cta reveal">
-        <h2>Start with IndusAudio in your facility.</h2>
-        <p>
-          Pilot audio-based AI preventive maintenance on your critical assets and
-          validate downtime reduction in weeks.
-        </p>
-        <a class="btn btn-primary" href="mailto:unboxengine@gmail.com">Request IndusAudio Quote</a>
+      <section id="contact" class="section cta demo-cta reveal">
+        <div class="demo-cta-copy">
+          <h2>Start with IndusAudio in your facility.</h2>
+          <p>
+            Pilot audio-based AI preventive maintenance on your critical assets and
+            validate downtime reduction in weeks.
+          </p>
+        </div>
+        <div class="demo-grid">
+          <article class="demo-card">
+            <h3>Request an IndusAudio demo</h3>
+            <p>Tell us about your equipment mix and we will tailor your walkthrough.</p>
+            <form class="demo-form" data-demo-form method="POST">
+              <div class="form-row">
+                <label for="demo-name">Full name</label>
+                <input id="demo-name" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div class="form-row">
+                <label for="demo-email">Work email</label>
+                <input id="demo-email" name="email" type="email" autocomplete="email" required />
+              </div>
+              <div class="form-row">
+                <label for="demo-company">Company</label>
+                <input id="demo-company" name="company" type="text" autocomplete="organization" required />
+              </div>
+              <div class="form-row">
+                <label for="demo-message">What equipment should we prioritize?</label>
+                <textarea
+                  id="demo-message"
+                  name="message"
+                  rows="4"
+                  placeholder="Example: motors, pumps, fans, compressor systems..."
+                  required
+                ></textarea>
+              </div>
+              <input type="hidden" name="_subject" value="New IndusAudio demo request" />
+              <button class="btn btn-primary" type="submit">Send Demo Request</button>
+              <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+            </form>
+          </article>
+          <article class="demo-card">
+            <h3>Book a virtual appointment</h3>
+            <p>Pick an available meeting time instantly with the scheduler below.</p>
+            <div class="scheduler-shell" data-scheduler-shell>
+              <iframe
+                data-scheduler-frame
+                title="Unbox Engine virtual demo scheduler"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+              <p class="scheduler-fallback" data-scheduler-fallback>
+                Scheduler is not configured yet. Update
+                <code>BOOK_DEMO_CONFIG.schedulerUrl</code> in
+                <code>script.js</code>.
+              </p>
+            </div>
+            <a class="btn btn-outline scheduler-link" data-scheduler-link href="mailto:unboxengine@gmail.com">
+              Schedule by Email
+            </a>
+          </article>
+        </div>
       </section>
     </main>
 
