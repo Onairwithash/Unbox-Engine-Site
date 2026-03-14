@@ -197,7 +197,7 @@
         <div class="demo-grid">
           <article class="demo-card">
             <h3>Request an IndusAudio demo</h3>
-            <p>Tell us about your equipment mix and we will tailor your walkthrough.</p>
+            <p>Tell us about your equipment mix and preferred meeting time, and we will tailor your walkthrough.</p>
             <form class="demo-form" data-demo-form method="POST">
               <div class="form-row">
                 <label for="demo-name">Full name</label>
@@ -210,6 +210,26 @@
               <div class="form-row">
                 <label for="demo-company">Company</label>
                 <input id="demo-company" name="company" type="text" autocomplete="organization" required />
+              </div>
+              <div class="form-row form-row-split">
+                <div>
+                  <label for="demo-date">Preferred meeting date</label>
+                  <input id="demo-date" name="preferred_date" type="date" required />
+                </div>
+                <div>
+                  <label for="demo-time">Preferred meeting time</label>
+                  <input id="demo-time" name="preferred_time" type="time" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <label for="demo-timezone">Time zone</label>
+                <input
+                  id="demo-timezone"
+                  name="timezone"
+                  type="text"
+                  autocomplete="off"
+                  placeholder="Example: Pacific Time (PT)"
+                />
               </div>
               <div class="form-row">
                 <label for="demo-message">What equipment should we prioritize?</label>
@@ -225,26 +245,6 @@
               <button class="btn btn-primary" type="submit">Send Demo Request</button>
               <p class="form-status" data-form-status role="status" aria-live="polite"></p>
             </form>
-          </article>
-          <article class="demo-card">
-            <h3>Book a virtual appointment</h3>
-            <p>Pick an available meeting time instantly with the scheduler below.</p>
-            <div class="scheduler-shell" data-scheduler-shell>
-              <iframe
-                data-scheduler-frame
-                title="Unbox Engine virtual demo scheduler"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-              <p class="scheduler-fallback" data-scheduler-fallback>
-                Scheduler is not configured yet. Update
-                <code>BOOK_DEMO_CONFIG.schedulerUrl</code> in
-                <code>script.js</code>.
-              </p>
-            </div>
-            <a class="btn btn-outline scheduler-link" data-scheduler-link href="mailto:unboxengine@gmail.com">
-              Schedule by Email
-            </a>
           </article>
         </div>
       </section>

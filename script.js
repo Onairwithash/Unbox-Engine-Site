@@ -4,9 +4,7 @@ const ambientNodes = document.querySelectorAll(".ambient");
 const scrollFloatNodes = document.querySelectorAll(".scroll-float-inner");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const BOOK_DEMO_CONFIG = {
-  formEndpoint: "https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID",
-  schedulerUrl:
-    "https://calendly.com/REPLACE_WITH_YOUR_LINK/30min?hide_event_type_details=1&hide_gdpr_banner=1",
+  formEndpoint: "https://formspree.io/f/mdawdrga",
 };
 
 const hasConfiguredValue = (value, placeholderToken) =>
@@ -93,45 +91,6 @@ const initDemoForms = () => {
   });
 };
 
-const initSchedulerEmbeds = () => {
-  const hasSchedulerUrl = hasConfiguredValue(
-    BOOK_DEMO_CONFIG.schedulerUrl,
-    "REPLACE_WITH_YOUR_LINK"
-  );
-  const schedulerShells = document.querySelectorAll("[data-scheduler-shell]");
-  const schedulerFrames = document.querySelectorAll("[data-scheduler-frame]");
-  const schedulerLinks = document.querySelectorAll("[data-scheduler-link]");
-
-  schedulerShells.forEach((shell) => {
-    if (hasSchedulerUrl) {
-      shell.classList.add("is-ready");
-    } else {
-      shell.classList.remove("is-ready");
-    }
-  });
-
-  schedulerFrames.forEach((frame) => {
-    if (hasSchedulerUrl) {
-      frame.src = BOOK_DEMO_CONFIG.schedulerUrl;
-    } else {
-      frame.removeAttribute("src");
-    }
-  });
-
-  schedulerLinks.forEach((link) => {
-    if (hasSchedulerUrl) {
-      link.href = BOOK_DEMO_CONFIG.schedulerUrl;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.textContent = "Open Scheduler in New Tab";
-    } else {
-      link.removeAttribute("target");
-      link.removeAttribute("rel");
-      link.textContent = "Schedule by Email";
-    }
-  });
-};
-
 if (reduceMotion) {
   revealElements.forEach((element) => element.classList.add("visible"));
 } else {
@@ -196,4 +155,3 @@ if (!reduceMotion) {
 }
 
 initDemoForms();
-initSchedulerEmbeds();
