@@ -197,7 +197,7 @@
         <div class="demo-grid">
           <article class="demo-card">
             <h3>Request an IndusAudio demo</h3>
-            <p>Tell us about your equipment mix and preferred meeting time, and we will tailor your walkthrough.</p>
+            <p>Tell us about your equipment mix. You can optionally include preferred meeting details.</p>
             <form class="demo-form" data-demo-form method="POST">
               <div class="form-row">
                 <label for="demo-name">Full name</label>
@@ -211,25 +211,34 @@
                 <label for="demo-company">Company</label>
                 <input id="demo-company" name="company" type="text" autocomplete="organization" required />
               </div>
-              <div class="form-row form-row-split">
-                <div>
-                  <label for="demo-date">Preferred meeting date</label>
-                  <input id="demo-date" name="preferred_date" type="date" required />
-                </div>
-                <div>
-                  <label for="demo-time">Preferred meeting time</label>
-                  <input id="demo-time" name="preferred_time" type="time" required />
-                </div>
-              </div>
               <div class="form-row">
-                <label for="demo-timezone">Time zone</label>
-                <input
-                  id="demo-timezone"
-                  name="timezone"
-                  type="text"
-                  autocomplete="off"
-                  placeholder="Example: Pacific Time (PT)"
-                />
+                <label for="demo-meeting">Would you like to schedule a meeting?</label>
+                <select id="demo-meeting" name="meeting_option" data-meeting-choice>
+                  <option value="no" selected>No, send me details only</option>
+                  <option value="yes">Yes, I want to schedule a meeting</option>
+                </select>
+              </div>
+              <div class="meeting-fields" data-meeting-fields hidden>
+                <div class="form-row form-row-split">
+                  <div>
+                    <label for="demo-date">Preferred meeting date</label>
+                    <input id="demo-date" name="preferred_date" type="date" />
+                  </div>
+                  <div>
+                    <label for="demo-time">Preferred meeting time</label>
+                    <input id="demo-time" name="preferred_time" type="time" />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label for="demo-timezone">Time zone</label>
+                  <input
+                    id="demo-timezone"
+                    name="timezone"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="Example: Pacific Time (PT)"
+                  />
+                </div>
               </div>
               <div class="form-row">
                 <label for="demo-message">What equipment should we prioritize?</label>

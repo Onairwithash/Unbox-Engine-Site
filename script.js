@@ -33,9 +33,35 @@ const initDemoForms = () => {
   forms.forEach((form) => {
     const statusNode = form.querySelector("[data-form-status]");
     const submitButton = form.querySelector('button[type="submit"]');
+    const meetingChoice = form.querySelector("[data-meeting-choice]");
+    const meetingFields = form.querySelector("[data-meeting-fields]");
+    const preferredDateInput = form.querySelector('input[name="preferred_date"]');
+    const preferredTimeInput = form.querySelector('input[name="preferred_time"]');
+
+    const syncMeetingFields = () => {
+      if (!meetingChoice || !meetingFields) {
+        return;
+      }
+
+      const wantsMeeting = meetingChoice.value === "yes";
+      meetingFields.hidden = !wantsMeeting;
+
+      if (preferredDateInput) {
+        preferredDateInput.required = wantsMeeting;
+      }
+
+      if (preferredTimeInput) {
+        preferredTimeInput.required = wantsMeeting;
+      }
+    };
 
     if (hasFormEndpoint) {
       form.action = BOOK_DEMO_CONFIG.formEndpoint;
+    }
+
+    if (meetingChoice && meetingFields) {
+      meetingChoice.addEventListener("change", syncMeetingFields);
+      syncMeetingFields();
     }
 
     form.addEventListener("submit", async (event) => {
@@ -74,6 +100,7 @@ const initDemoForms = () => {
         }
 
         form.reset();
+        syncMeetingFields();
         setFormStatus(
           statusNode,
           "Thanks. We received your request and will reach out shortly.",

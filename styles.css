@@ -587,7 +587,7 @@ h1 {
 }
 
 .demo-cta-copy {
-  max-width: 760px;
+  max-width: none;
 }
 
 .demo-grid {
@@ -596,6 +596,7 @@ h1 {
   gap: 1rem;
   grid-template-columns: minmax(0, 1fr);
   align-items: start;
+  width: 100%;
 }
 
 .demo-card {
@@ -603,6 +604,7 @@ h1 {
   border-radius: 16px;
   padding: 1rem;
   background: rgba(10, 16, 28, 0.68);
+  width: 100%;
 }
 
 .demo-card h3 {
@@ -642,6 +644,7 @@ h1 {
 }
 
 .form-row input,
+.form-row select,
 .form-row textarea {
   width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -658,9 +661,15 @@ h1 {
 }
 
 .form-row input:focus-visible,
+.form-row select:focus-visible,
 .form-row textarea:focus-visible {
   outline: 2px solid rgba(92, 210, 255, 0.65);
   outline-offset: 1px;
+}
+
+.meeting-fields {
+  display: grid;
+  gap: 0.72rem;
 }
 
 .demo-form .btn {
